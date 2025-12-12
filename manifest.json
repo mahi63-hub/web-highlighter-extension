@@ -1,22 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Web Highlighter & Notes",
-  "version": "0.2.0",
-  "description": "Highlight text and add notes on any webpage.",
-  "permissions": ["activeTab", "storage", "tabs"],
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
+  "version": "1.0",
+  "description": "Highlight text in multiple colors with notes, persistence & popup viewer.",
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Web Highlighter"
+    "default_title": "Highlights"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["contentScript.js"],
-      "run_at": "document_idle"
+      "run_at": "document_end"
     }
   ]
 }
