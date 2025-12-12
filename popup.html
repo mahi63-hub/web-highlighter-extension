@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Highlights</title>
   <style>
-    body {
-      width: 250px;
-      font-family: sans-serif;
-      padding: 10px;
-    }
-    .item {
-      background: #fff3a3;
-      margin: 5px 0;
-      padding: 5px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+    body { width: 340px; font-family: Arial, sans-serif; padding: 12px; }
+    h3 { margin: 0 0 8px 0; }
+    #search { width:100%; padding:6px; box-sizing:border-box; margin-bottom:8px; }
+    #color-row { display:flex; gap:6px; margin-bottom:8px; align-items:center; }
+    .color-btn { width:28px; height:20px; border-radius:4px; border:1px solid #ccc; cursor:pointer; }
+    #list { max-height:380px; overflow:auto; }
+    .item { background:#fff3a3; padding:8px; margin-bottom:8px; border-radius:6px; position:relative; display:flex; align-items:center; gap:8px; }
+    .text { flex:1; }
+    .btn { background:transparent; border:1px solid #ccc; padding:4px 6px; border-radius:4px; cursor:pointer; }
+    #note-section { margin-top:10px; display:none; }
+    #note-input { width:100%; box-sizing:border-box; }
   </style>
 </head>
 <body>
   <h3>Highlights</h3>
+  <input id="search" placeholder="Search highlights..." />
+  <div id="color-row">
+    <div>Color:</div>
+    <div id="c-yellow" class="color-btn" style="background:yellow" data-color="yellow"></div>
+    <div id="c-green" class="color-btn" style="background:lightgreen" data-color="lightgreen"></div>
+    <div id="c-pink" class="color-btn" style="background:plum" data-color="plum"></div>
+  </div>
   <div id="list"></div>
+  <div id="note-section">
+    <textarea id="note-input" rows="4" placeholder="Write note..."></textarea>
+    <div style="margin-top:6px;">
+      <button id="save-note" class="btn">Save Note</button>
+      <button id="cancel-note" class="btn">Cancel</button>
+    </div>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
